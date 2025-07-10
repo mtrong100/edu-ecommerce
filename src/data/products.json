@@ -1,0 +1,74 @@
+[
+    {
+        "id": "c1",
+        "name": "English for Beginners",
+        "price": 250000,
+        "thumbnail": "https://plus.unsplash.com/premium_photo-1681248156502-745ab87474d8?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "shortDesc": "Learn basic English skills for daily communication.",
+        "longDesc": "This course helps beginners master greetings, daily conversations, and pronunciation in real-life contexts.",
+        "rating": 4.0
+    },
+    {
+        "id": "c2",
+        "name": "English Grammar Essentials",
+        "price": 390000,
+        "thumbnail": "https://plus.unsplash.com/premium_photo-1682787494977-d013bb5a8773?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "shortDesc": "Master essential grammar rules for correct English usage.",
+        "longDesc": "You’ll learn tenses, sentence structures, prepositions, articles, and how to use grammar accurately in both writing and speaking.",
+        "rating": 4.3
+    },
+    {
+        "id": "c3",
+        "name": "Business English Communication",
+        "price": 680000,
+        "thumbnail": "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "shortDesc": "Enhance your English communication in a business setting.",
+        "longDesc": "Practice emails, meetings, negotiations, and formal presentations in English with real business scenarios.",
+        "rating": 4.6
+    },
+    {
+        "id": "c4",
+        "name": "IELTS Preparation Course",
+        "price": 990000,
+        "thumbnail": "https://images.unsplash.com/photo-1664382953481-141e97ad9825?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "shortDesc": "Get ready for your IELTS test with expert strategies.",
+        "longDesc": "Covers all four IELTS skills: Listening, Speaking, Reading, and Writing. Includes mock tests and score feedback.",
+        "rating": 4.7
+    },
+    {
+        "id": "c5",
+        "name": "English Listening & Speaking Practice",
+        "price": 470000,
+        "thumbnail": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "shortDesc": "Improve your fluency and pronunciation in real situations.",
+        "longDesc": "Daily practice with conversations, pronunciation drills, and role-play activities to boost confidence and fluency.",
+        "rating": 4.4
+    },
+    {
+        "id": "c6",
+        "name": "TOEIC Test Preparation",
+        "price": 520000,
+        "thumbnail": "https://plus.unsplash.com/premium_photo-1682787495098-80dd811f69b5?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "shortDesc": "Prepare for the TOEIC exam with practice tests and tips.",
+        "longDesc": "Includes vocabulary building, grammar review, and timed practice tests modeled on the official TOEIC format.",
+        "rating": 4.2
+    },
+    {
+        "id": "c7",
+        "name": "Advanced English Writing",
+        "price": 820000,
+        "thumbnail": "https://images.unsplash.com/photo-1532619187608-e5375cab36aa?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "shortDesc": "Write essays, reports, and emails with precision.",
+        "longDesc": "Learn to write clearly and professionally, using academic and workplace formats. Peer review and tutor feedback included.",
+        "rating": 4.5
+    },
+    {
+        "id": "c8",
+        "name": "English for Travel & Tourism",
+        "price": 360000,
+        "thumbnail": "https://images.unsplash.com/photo-1559136656-3db4bf6c35f8?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "shortDesc": "Essential English for travelers and tourism professionals.",
+        "longDesc": "Covers airport, hotel, restaurant, shopping, and sightseeing vocabulary and dialogues for global travelers.",
+        "rating": 4.1
+    }
+]
