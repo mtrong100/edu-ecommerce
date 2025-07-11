@@ -99,7 +99,7 @@ const Landing = () => {
           <img
             src={Image1}
             alt="Learning"
-            className="mx-auto max-w-md rounded-lg shadow"
+            className="w-full max-w-md mx-auto rounded-lg shadow-md"
           />
         </div>
       </section>

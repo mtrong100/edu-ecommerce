@@ -39,22 +39,31 @@ const Header = () => {
             </Link>
           ))}
 
-          {/* Kiểm tra user */}
           {currentUser ? (
-            <Link to="/cart" className="relative">
-              <span className="text-2xl hover:text-blue-600 transition">
+            <div className="flex items-center gap-4">
+              <Link
+                to="/cart"
+                className="relative text-2xl hover:text-blue-600 transition"
+                title="Giỏ hàng"
+              >
                 🛒
-              </span>
-              {cartItems.length > 0 && (
-                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded-full shadow">
-                  {cartItems.length}
-                </span>
-              )}
-            </Link>
+                {cartItems.length > 0 && (
+                  <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded-full shadow">
+                    {cartItems.length}
+                  </span>
+                )}
+              </Link>
+              <Link
+                to="/profile"
+                className="text-sm bg-gray-200 text-gray-800 p-3 rounded-full hover:bg-gray-300 transition"
+              >
+                👤 Cá nhân
+              </Link>
+            </div>
           ) : (
             <Link
               to="/login"
-              className="bg-blue-600 text-white px-5 py-3 rounded-md text-sm hover:bg-blue-700 transition"
+              className="bg-blue-600 text-white px-4 py-1.5 rounded-full text-sm hover:bg-blue-700 transition"
             >
               Đăng nhập
             </Link>
