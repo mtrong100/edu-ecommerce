@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import productsData from "../data/products.json";
 import ProductCard from "../components/ProductCard";
 import ProductModal from "../components/ProductModal";
 import { getLocal, setLocal } from "../utils/localStorageUtils";
@@ -7,7 +6,8 @@ import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
 
 const History = () => {
-  const [viewedIds, setViewedIds] = useState(getLocal("viewed") || []);
+  const [history, setHistory] = useState([]);
+
   const [favorites, setFavorites] = useState(getLocal("favorites") || []);
   const [selectedProduct, setSelectedProduct] = useState(null);
 
@@ -24,9 +24,10 @@ const History = () => {
     setLocal("favorites", updated);
   };
 
-  const historyProducts = viewedIds
-    .map((id) => productsData.find((p) => p.id === id))
-    .filter(Boolean);
+  useEffect(() => {
+    const data = JSON.parse(localStorage.getItem("viewedHistory")) || [];
+    setHistory(data);
+  }, []);
 
   return (
     <div className="container mx-auto px-4 py-10">
@@ -41,13 +42,8 @@ const History = () => {
       </div>
 
       {/* Empty state */}
-      {historyProducts.length === 0 ? (
+      {history.length === 0 ? (
         <div className="text-center text-gray-500 py-20">
-          <img
-            src="/assets/empty_history.png"
-            alt="empty"
-            className="w-32 mx-auto mb-6 opacity-70"
-          />
           <p className="text-lg">Bạn chưa xem khoá học nào gần đây 😶</p>
           <Link
             to="/courses"
@@ -57,12 +53,11 @@ const History = () => {
           </Link>
         </div>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {historyProducts.map((product) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          {history.map((product) => (
             <ProductCard
               key={product.id}
               product={product}
-              onViewDetail={setSelectedProduct}
               onToggleFavorite={handleToggleFavorite}
               isFavorite={favorites.includes(product.id)}
             />

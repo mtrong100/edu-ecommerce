@@ -6,6 +6,7 @@ import ProductModal from "../components/ProductModal";
 import FilterBar from "../components/FilterBar";
 import toast from "react-hot-toast";
 import SkeletonCard from "../components/SkeletonCard";
+import { addToHistory } from "../utils/localStorageUtils";
 
 const Courses = () => {
   const [products, setProducts] = useState([]);
@@ -47,6 +48,9 @@ const Courses = () => {
 
   const handleViewDetail = (product) => {
     setSelectedProduct(product);
+
+    // ✅ Lưu lịch sử xem
+    addToHistory(product);
   };
 
   const filteredProducts = products
