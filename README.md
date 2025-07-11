@@ -5,7 +5,8 @@
 ---
 
 📸 Screenshot
-![Screenshot](./Screenshot.png)
+![Screenshot](./Screenshot01.png)
+![Screenshot](./Screenshot02.png)
 
 ## 🚀 Công nghệ sử dụng
 
