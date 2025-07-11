@@ -5,6 +5,7 @@ import ProductCard from "../components/ProductCard";
 import ProductModal from "../components/ProductModal";
 import FilterBar from "../components/FilterBar";
 import toast from "react-hot-toast";
+import SkeletonCard from "../components/SkeletonCard";
 
 const Courses = () => {
   const [products, setProducts] = useState([]);
@@ -12,10 +13,24 @@ const Courses = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [priceFilter, setPriceFilter] = useState("");
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [suggestions, setSuggestions] = useState([]);
+  const [suggestionLoading, setSuggestionLoading] = useState(false);
 
   useEffect(() => {
     setProducts(productsData);
   }, []);
+
+  const handleSuggest = () => {
+    setSuggestionLoading(true);
+    setSuggestions([]); // clear cũ để đảm bảo render skeleton
+
+    setTimeout(() => {
+      const shuffled = [...products].sort(() => 0.5 - Math.random());
+      setSuggestions(shuffled.slice(0, 3));
+      setSuggestionLoading(false);
+      toast.success("Đã gợi ý 3 khoá học phù hợp 🎯");
+    }, 800); // giả loading 0.8s
+  };
 
   const handleToggleFavorite = (productId) => {
     let updated;
@@ -62,6 +77,43 @@ const Courses = () => {
         selectedPriceRange={priceFilter}
         onPriceFilter={setPriceFilter}
       />
+
+      <div className="flex justify-end mb-6">
+        <button
+          onClick={handleSuggest}
+          className="px-5 py-3 bg-green-600 text-white rounded-md hover:bg-green-700 transition"
+        >
+          🎯 Gợi ý khoá học
+        </button>
+      </div>
+
+      {(suggestionLoading || suggestions.length > 0) && (
+        <>
+          <h2 className="text-xl font-semibold text-gray-800 mb-4">
+            🔍 Gợi ý cho bạn
+          </h2>
+
+          {suggestionLoading ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 my-6">
+              {[...Array(3)].map((_, i) => (
+                <SkeletonCard key={i} />
+              ))}
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-10 border-b-4 border-b-blue-300 pb-8">
+              {suggestions.map((product) => (
+                <ProductCard
+                  key={product.id}
+                  product={product}
+                  onViewDetail={handleViewDetail}
+                  onToggleFavorite={handleToggleFavorite}
+                  isFavorite={favorites.includes(product.id)}
+                />
+              ))}
+            </div>
+          )}
+        </>
+      )}
 
       {/* Danh sách */}
       {filteredProducts.length === 0 ? (

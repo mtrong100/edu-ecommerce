@@ -1,4 +1,6 @@
 import React from "react";
+import { addToCart } from "../utils/localStorageUtils";
+import toast from "react-hot-toast";
 
 const ProductCard = ({
   product,
@@ -35,7 +37,7 @@ const ProductCard = ({
       </div>
 
       {/* Nội dung */}
-      <div className="p-4 space-y-2">
+      <div className="p-4 space-y-3">
         <h2 className="text-xl font-semibold text-gray-800 group-hover:text-blue-600 transition">
           {product.name}
         </h2>
@@ -55,6 +57,16 @@ const ProductCard = ({
             Xem chi tiết
           </button>
         </div>
+
+        <button
+          onClick={() => {
+            addToCart(product);
+            toast.success("Đã thêm vào giỏ hàng");
+          }}
+          className="w-full py-2 rounded-md bg-blue-600 hover:bg-blue-700 text-white font-semibold"
+        >
+          🛒 Thêm vào giỏ hàng
+        </button>
       </div>
     </div>
   );

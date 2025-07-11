@@ -1,9 +1,11 @@
-import { Link, useLocation } from "react-router-dom";
-import { useState } from "react";
+import { Link } from "react-router-dom";
+import { useContext, useState, useEffect } from "react";
+import { CartContext } from "../context/CartContext";
 
 const Header = () => {
-  const { pathname } = useLocation();
+  const { cartItems } = useContext(CartContext);
   const [isOpen, setIsOpen] = useState(false);
+  const [currentUser, setCurrentUser] = useState(null);
 
   const navLinks = [
     { label: "Trang chủ", to: "/" },
@@ -12,8 +14,10 @@ const Header = () => {
     { label: "Lịch sử xem", to: "/history" },
   ];
 
-  const isActive = (path) =>
-    pathname === path ? "text-blue-600 font-semibold" : "text-gray-700";
+  useEffect(() => {
+    const user = localStorage.getItem("currentUser");
+    setCurrentUser(user ? JSON.parse(user) : null);
+  }, []);
 
   return (
     <header className="sticky top-0 z-50 bg-white/70 backdrop-blur-md shadow-sm">
@@ -29,25 +33,44 @@ const Header = () => {
             <Link
               key={i}
               to={link.to}
-              className={`${isActive(
-                link.to
-              )} hover:text-blue-500 transition font-semibold`}
+              className="text-sm hover:text-blue-600 text-gray-700 transition"
             >
               {link.label}
             </Link>
           ))}
+
+          {/* Kiểm tra user */}
+          {currentUser ? (
+            <Link to="/cart" className="relative">
+              <span className="text-2xl hover:text-blue-600 transition">
+                🛒
+              </span>
+              {cartItems.length > 0 && (
+                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded-full shadow">
+                  {cartItems.length}
+                </span>
+              )}
+            </Link>
+          ) : (
+            <Link
+              to="/login"
+              className="bg-blue-600 text-white px-5 py-3 rounded-md text-sm hover:bg-blue-700 transition"
+            >
+              Đăng nhập
+            </Link>
+          )}
         </nav>
 
-        {/* Mobile menu toggle */}
+        {/* Mobile toggle */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden text-gray-600 hover:text-blue-600 transition"
+          className="md:hidden text-gray-700 text-xl"
         >
           ☰
         </button>
       </div>
 
-      {/* Mobile nav */}
+      {/* Mobile menu */}
       {isOpen && (
         <div className="md:hidden px-6 pb-4">
           <nav className="flex flex-col space-y-3">
@@ -56,13 +79,22 @@ const Header = () => {
                 key={i}
                 to={link.to}
                 onClick={() => setIsOpen(false)}
-                className={`${isActive(
-                  link.to
-                )} hover:text-blue-500 transition text-sm`}
+                className="text-sm hover:text-blue-600 text-gray-700 transition"
               >
                 {link.label}
               </Link>
             ))}
+            <Link
+              to="/cart"
+              className="text-sm hover:text-blue-600 flex items-center gap-2"
+            >
+              🛒 Giỏ hàng
+              {cartItems.length > 0 && (
+                <span className="text-xs bg-red-500 text-white px-2 rounded-full">
+                  {cartItems.length}
+                </span>
+              )}
+            </Link>
           </nav>
         </div>
       )}

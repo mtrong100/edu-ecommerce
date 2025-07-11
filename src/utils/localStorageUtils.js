@@ -14,3 +14,20 @@ export const addToLocalArrayUnique = (key, value) => {
     setLocal(key, updated.slice(0, 6)); // giới hạn tối đa 6 sản phẩm
   }
 };
+
+export const getCart = () => {
+  return JSON.parse(localStorage.getItem("cart")) || [];
+};
+
+export const setCart = (cartItems) => {
+  localStorage.setItem("cart", JSON.stringify(cartItems));
+};
+
+export const addToCart = (product) => {
+  const current = getCart();
+  const exists = current.find((p) => p.id === product.id);
+  if (!exists) {
+    const updated = [...current, product];
+    setCart(updated);
+  }
+};

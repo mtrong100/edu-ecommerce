@@ -5,6 +5,11 @@ import Header from "./components/Header";
 import History from "./pages/History";
 import Landing from "./pages/Landing";
 import Footer from "./components/Footer";
+import Cart from "./pages/Cart";
+import Checkout from "./pages/Checkout";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Forgot from "./pages/Forgot";
 
 function App() {
   return (
@@ -16,6 +21,11 @@ function App() {
           <Route path="/courses" element={<Course />} />
           <Route path="/favorites" element={<Favorites />} />
           <Route path="/history" element={<History />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/forgot" element={<Forgot />} />
         </Routes>
       </div>
       <Footer />

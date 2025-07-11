@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Image1 from "../assets/image01.png";
 
 const features = [
   {
@@ -96,7 +97,7 @@ const Landing = () => {
             cầu và tốc độ riêng của mình.
           </p>
           <img
-            src="/assets/learning_illustration.png"
+            src={Image1}
             alt="Learning"
             className="mx-auto max-w-md rounded-lg shadow"
           />
